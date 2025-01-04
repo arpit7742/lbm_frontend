@@ -6,16 +6,21 @@ This repository contains the frontend for the **Book Management App**, a platfor
 ## Features 💡
 
 - **User Authentication & Authorization**: 
-  - Login/Register functionality.
-  - ---![Screenshot 2025-01-05 030259](https://github.com/user-attachments/assets/27148e58-50a2-4b68-87a9-08020ffdc41a)
-
+  - Register functionality.
+  - ![Screenshot 2025-01-05 030259](https://github.com/user-attachments/assets/27148e58-50a2-4b68-87a9-08020ffdc41a)
+Login Functionality.
 ![Screenshot 2025-01-05 030248](https://github.com/user-attachments/assets/dce05c97-4b3a-411b-9b1b-1d3568a96440)
+Dashboard: ![Screenshot 2025-01-05 041356](https://github.com/user-attachments/assets/47511ea9-6bb5-4fc7-bb4e-e40bceee092d)
   - Role-based access for Admin and Clients.
-- **Book Management**: 
+- **Book Management**: ![image](https://github.com/user-attachments/assets/09b1dfeb-cb32-43ae-ba99-85046e468bd1)
+
   - View, create, edit, and delete books (Admin-specific).
-- **Comments on Books**: 
+
+- **Comments on Books**: ![image](https://github.com/user-attachments/assets/dc52022e-ec8e-4286-ad07-25850869ce76)
+
   - Users can add and view comments on books.
-- **Wishlist Feature**: 
+- **Wishlist Feature**: ![image](https://github.com/user-attachments/assets/471c496c-2200-4b4e-ba51-5e5e85beb6fb)
+
   - Add books to a personalized wishlist.
 
 ## Environment Variables
