@@ -1,10 +1,21 @@
-const Loader = () => {
-    return (
-      <div className="flex h-screen items-center justify-center ">
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-solid border-blue-500 border-t-transparent"></div>
-      </div>
-    );
-  };
-  
-  export default Loader;
-  
+import PropTypes from "prop-types";
+
+const Loader = ({ size = "16", color = "blue-500", borderWidth = "4" }) => {
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <div
+        className={`h-${size} w-${size} animate-spin rounded-full border-${borderWidth} border-solid border-${color} border-t-transparent`}
+        role="status"
+        aria-label="Loading"
+      />
+    </div>
+  );
+};
+
+Loader.propTypes = {
+  size: PropTypes.string,
+  color: PropTypes.string,
+  borderWidth: PropTypes.string,
+};
+
+export default Loader;

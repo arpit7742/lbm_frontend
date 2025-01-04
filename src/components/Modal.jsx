@@ -1,49 +1,80 @@
-import React from 'react'
-import ChangePasswordForm from './ChangePasswordForm';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import ChangePasswordForm from "./ChangePasswordForm";
 
-const Modal = ({setShow}) => {
+const Modal = ({ setShow }) => {
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") handleClose();
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
-    <div className="fixed inset-0 z-999999 flex  h-full w-full items-center justify-center overflow-y-auto bg-white bg-opacity-30">
-      <div className=" w-[100%]  lg:w-[50%] bg-white dark:bg-gray-800 ">
-        <div className="flex w-[100%] justify-between border-b border-stroke px-7 py-4 dark:border-strokedark">
-          <h3 className=" font-bold text-black dark:text-white">Change Password</h3>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      onClick={handleClose}
+      aria-hidden="true"
+    >
+      <div
+        className="w-[90%] max-w-lg bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+        onClick={(e) => e.stopPropagation()}
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className="flex justify-between items-center border-b border-gray-300 dark:border-gray-700 p-4">
+          <h3 id="modal-title" className="text-lg font-semibold dark:text-white">
+            Change Password
+          </h3>
           <button
             type="button"
-            title="ADD"
-            onClick={() => {
-              setShow(false);
-            }}
-            className="text-bold text-2xl"
+            onClick={handleClose}
+            aria-label="Close modal"
+            className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               width="24"
               height="24"
-              className="text-black dark:text-white"
               fill="none"
             >
               <path
-                d="M15 9L9 14.9996M15 15L9 9.00039"
+                d="M15 9L9 15M15 15L9 9"
                 stroke="currentColor"
-                strokeWidth="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
-              <path
-                d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2"
               />
             </svg>
           </button>
         </div>
-        <div className="p-7">
-          <ChangePasswordForm/>
+        <div className="p-6">
+          <ChangePasswordForm />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+Modal.propTypes = {
+  setShow: PropTypes.func.isRequired,
+};
+
+export default Modal;
