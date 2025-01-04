@@ -4,14 +4,14 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function CreateBook() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     author: "",
     description: "",
     genre: "",
   });
-  const [loading,setLoading]=useState(false);
+  const [loading, setLoading] = useState(false);
   const [coverImage, setCoverImage] = useState(null);
 
   const handleChange = (e) => {
@@ -25,6 +25,7 @@ function CreateBook() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const formDataToSend = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       formDataToSend.append(key, value);
@@ -34,12 +35,17 @@ function CreateBook() {
     }
 
     try {
-      const response=await axios.post(`${import.meta.env.VITE_URL}/books`, formDataToSend, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_URL}/books`,
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
+
       toast.success("Book created successfully!");
       setFormData({
         title: "",
@@ -47,20 +53,19 @@ function CreateBook() {
         description: "",
         genre: "",
       });
-      setLoading(false);
-      console.log(response.data.data);
       setCoverImage(null);
-      navigate(`../books/${response.data.data._id}`)
+      setLoading(false);
+      navigate(`../books/${response.data.data._id}`);
     } catch (error) {
-      console.log(error);
-      if(error.status===409){
+      setLoading(false);
+
+      // Handle error response
+      if (error.response && error.response.status === 409) {
         toast.error("Duplicate Book not allowed");
-      }
-      else{
+      } else {
         toast.error("Failed to create book. Try again.");
       }
-      
-      //setLoading(false);
+      console.error(error);
     }
   };
 
@@ -114,7 +119,7 @@ function CreateBook() {
           type="submit"
           className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
         >
-          Submit
+          {loading ? "Creating..." : "Submit"}
         </button>
       </form>
     </div>
