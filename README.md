@@ -88,15 +88,4 @@ Builds the app for production.
 ### `npm run preview`
 Locally serves the production build.
 
----
 
-## Features in Progress 🚧
-- Dark mode support.
-- Enhanced accessibility (ARIA attributes).
-- More detailed user analytics for Admins.
-
----
-
-## Feedback & Contributions
-
-We’d love your feedback and contributions! Please feel free to fork this repository and make a pull request for any bug fixes, enhancements, or new features.
