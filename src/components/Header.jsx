@@ -85,19 +85,12 @@ const Header = ({ username, signOut, setIsMenuOpen, isMenuOpen }) => {
             >
               Account Settings
             </button>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                signOut();
-              }}
+            <button
+              onClick={signOut} // Directly calling signOut here instead of using form
+              className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
             >
-              <button
-                type="submit"
-                className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
-              >
-                Sign Out
-              </button>
-            </form>
+              Sign Out
+            </button>
           </div>
         )}
       </div>
