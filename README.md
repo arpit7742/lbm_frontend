@@ -1,86 +1,51 @@
+Frontend for Book Management App 📚
+This repository contains the frontend for the Book Management App, a platform that allows users to browse, comment, and manage books, including features like a wishlist and user authentication.
 
+Features 💡
+User Authentication & Authorization:
+Login/Register functionality.
+Role-based access for Admin and Clients.
+Book Management:
+View, create, edit, and delete books (Admin-specific).
+Comments on Books:
+Users can add and view comments on books.
+Wishlist Feature:
+Add books to a personalized wishlist.
+Environment Variables
+To run this project, you will need to add the following environment variables to your .env file:
 
-
-
-
-
-## Features 💡
-
-- User Authentication & Authorization with related CRUD OPERATIONS
-- Book Management ( CRUD Operations)
-- Client and Admin functionality 
-- Comments on Book Feature
-- Wishlist Book feature
-
-
-
-
-## Environment Variables 
-
-To run this project, you will need to add the following environment variables to your .env file
-
-
-- For Backend 
-
-
-```bash
-PORT=8000
-MONGODB_URI=
-CORS_ORIGIN=*
-
-ACCESS_TOKEN_SECRET=
-ACCESS_TOKEN_EXPIRY=1d
-REFRESH_TOKEN_SECRET=
-REFRESH_TOKEN_EXPIRY=10d
-
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-
-```
-
-- For Frontend
-
-```
-VITE_URL=
-```
-
-
-
-
-## Run Locally
-
-For both Frontend and Server- 
-
-Clone the project 
-
-
-```bash
-  git clone **url**
-```
-
+bash
+Copy code
+VITE_URL= # Backend API URL (e.g., http://localhost:8000)
+Run Locally
+Prerequisites
+Ensure you have Node.js and npm installed.
+The backend server is configured and running.
+Clone the repository
+bash
+Copy code
+git clone <repository-url>
+Navigate to the frontend directory
+bash
+Copy code
+cd frontend
 Install dependencies
+bash
+Copy code
+npm install
+Start the development server
+bash
+Copy code
+npm run dev
+The frontend will run on http://localhost:5173.
 
-```bash
-  npm install
-```
+Tech Stack
+Frontend:
 
-Start the server
-
-```bash
-  npm run dev
-```
-
-The server runs on port 8000 and frontend on port 5173
-
-
-## Tech Stack
-
-**Server  :** 
-Node, Express , MongoDB ,Mongoose , JWT , Cloudinary
-
-**Frontend :**
-Vite+ReactJs , React-router-dom , Tailwind css
-
-
-
+Vite + React.js: Fast and modern development environment.
+React Router DOM: For dynamic routing.
+Tailwind CSS: Utility-first CSS framework for styling.
+Available Scripts
+npm run dev
+Runs the development server.
+Visit http://localhost:5173 to view it in the browser.
