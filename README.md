@@ -1,5 +1,5 @@
 
-# Frontend for Book Management App 📚
+# Frontend for Library Management App 📚
 
 This repository contains the frontend for the **Book Management App**, a platform that allows users to browse, comment, and manage books, including features like a wishlist and user authentication.
 
